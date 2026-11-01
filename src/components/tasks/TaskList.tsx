@@ -5,15 +5,23 @@ interface TaskListProps {
   tasks: Task[];
 }
 
-function TaskList({ tasks }: TaskListProps) {
+interface TaskListProps {
+  tasks: Task[];
+  onShowForm: () => void;
+}
+
+function TaskList({ tasks, onShowForm }: TaskListProps) {
   return (
     <section className="tasks-placeholder">
 
       <div className="tasks-header">
         <h2>Your Magical Tasks</h2>
-        <button className="add-task-button">
-          + Add Task
-        </button>
+        <button
+  className="add-task-button"
+  onClick={onShowForm}
+>
+  + Add Task
+</button>
       </div>
 
       <div className="tasks-list">
