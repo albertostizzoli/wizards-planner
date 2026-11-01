@@ -2,6 +2,7 @@
 
 .app-layout {
   display: flex;
+  width: 100%;
   min-height: 100vh;
 
   background:
@@ -508,5 +509,135 @@
 
 .task-form-actions button:hover {
   background: #842626;
+}
+
+
+/* TASK LIST - NUOVO DESIGN */
+
+.tasks-placeholder {
+  padding: 30px;
+  background:
+    linear-gradient(135deg, #f5d9ad, #d9ad78 55%, #c18c55);
+  border: 2px solid #93602e;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 25px rgba(100, 50, 15, 0.2);
+}
+
+.tasks-header {
+  margin-bottom: 25px;
+}
+
+.tasks-header h2 {
+  color: #40240e;
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: 42px 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+
+  background: rgba(255, 239, 210, 0.45);
+  border: 1px solid rgba(130, 80, 35, 0.45);
+  border-radius: 12px;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+.task-item:hover {
+  background: rgba(255, 245, 225, 0.75);
+  transform: translateY(-2px);
+}
+
+.task-checkbox {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #70451f;
+  border-radius: 50%;
+  color: #f5d9ad;
+}
+
+.task-item.completed .task-checkbox {
+  background: #526b35;
+  border-color: #526b35;
+}
+
+.task-icon {
+  color: #70451f;
+}
+
+.task-info {
+  min-width: 0;
+}
+
+.task-info h3 {
+  margin-bottom: 5px;
+  color: #40240e;
+  font-family: Georgia, serif;
+  font-size: 19px;
+}
+
+.task-info p {
+  margin-bottom: 0;
+  color: #684522;
+  font-size: 14px;
+}
+
+.task-category {
+  display: none;
+}
+
+.priority {
+  min-width: 75px;
+  text-align: center;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.task-item.completed .task-info h3,
+.task-item.completed .task-info p {
+  text-decoration: line-through;
+}
+
+@media (max-width: 650px) {
+  .tasks-placeholder {
+    padding: 18px;
+  }
+
+  .task-item {
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .task-icon {
+    display: none;
+  }
+
+  .task-info h3 {
+    font-size: 16px;
+  }
+
+  .priority {
+    min-width: auto;
+    padding: 6px 9px;
+  }
 }
 
